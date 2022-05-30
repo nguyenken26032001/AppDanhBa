@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".danhBaDetail">
+    <TextView
+        android:id="@+id/backPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/back"
+        android:text="Liên hệ"
+        android:textColor="#2196F3"
+        android:textSize="20sp" />
+    <ImageView
+        android:src="@mipmap/ic_launcher_round"
+        android:id="@+id/image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="50dp" />
+
+    <TextView
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="20dp"
+        android:text="Sửa"
+        android:textColor="#2196F3"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="20dp"
+        android:text="User Name"
+        android:textAlignment="center"
+        android:textSize="22dp" />
+
+    <LinearLayout
+        android:id="@+id/backgroudImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/message"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:drawableStart="@drawable/message"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/call"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:drawableStart="@drawable/call"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/callZalo"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:drawableStart="@drawable/videocam"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/textt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backgroudImage"
+        android:layout_marginLeft="80dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Nhắn tin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="Gọi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:text="Zalo" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textDidong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textt"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Di động"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textDidong"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="0825871266"
+        android:textColor="#2196F3"
+        android:textSize="20dp" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/phoneNumber"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/sendMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Gửi tin nhẵn"
+        android:textColor="#2196F3"
+        android:textSize="20dp" />
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/sendMessage"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/mucyeuthich"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Thêm vào mục yêu thích"
+        android:textColor="#2196F3"
+        android:textSize="20dp" />
+    <View
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/mucyeuthich"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/black"/>
+</RelativeLayout>

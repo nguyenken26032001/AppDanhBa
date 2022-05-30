@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/custom_dialog_addphonenumber">
+    <Button
+        android:textColor="#2196F3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/custom_button_add_phonenumber"
+        android:padding="5dp"
+        android:id="@+id/adduser"
+        android:layout_marginTop="20dp"
+        android:textSize="13sp"
+        android:text="Tạo Liên hệ mới"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+    <Button
+        android:textColor="#2196F3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/custom_button_add_phonenumber"
+        android:layout_height="40dp"
+        android:id="@+id/cancle"
+        android:layout_marginTop="15dp"
+        android:textSize="13sp"
+        android:text="Hủy"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+       />
+</LinearLayout>
