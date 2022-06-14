@@ -30,13 +30,15 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase database = getWritableDatabase();
         database.execSQL(str);
     }
-    public void UpdateUsers(String Ho,String ten, byte[] img,String sdt,Integer position){
+    public void UpdateUsers(String ten,String sdt,String email,String street,String city, byte[] img,Integer position){
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues contentValues =new ContentValues();
-        contentValues.put("firstName",Ho);
-        contentValues.put("lastName",ten);
-        contentValues.put("hinhAnh",img);
-        contentValues.put("phoneNumber",sdt);
+        contentValues.put("Name",ten);
+        contentValues.put("PhoneNumber",sdt);
+        contentValues.put("Email",email);
+        contentValues.put("Street",street);
+        contentValues.put("City",city);
+        contentValues.put("HinhAnh",img);
         String where = "id" + "=" + position;
        db.update("users",contentValues, where, null);
     }
@@ -47,25 +49,52 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase database = getReadableDatabase();
         return database.rawQuery(str, null);
     }
-    public  void insertForImage(String Ho,String ten,String sdt,byte[]hinhAnh) {
+    public  void insertForImage(String ten,String sdt,String email,String street,String city,byte[]hinhAnh) {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "Insert into users(id,firstName, lastName,phoneNumber,hinhAnh)  values(null,?,?,?,?)";
+        String sql = "Insert into users(id,Name,PhoneNumber,Email,Street,City,HinhAnh)  values(null,?,?,?,?,?,?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
-        statement.bindString(1,Ho);
-        statement.bindString(2, ten);
-        statement.bindString(3, sdt);
-        statement.bindBlob(4, hinhAnh);
+        statement.bindString(1,ten);
+        statement.bindString(2, sdt);
+        statement.bindString(3, email);
+        statement.bindString(4, street);
+        statement.bindString(5, city);
+        statement.bindBlob(6, hinhAnh);
+        statement.executeInsert();
+    }    public  void insertForImageProfile(String ten,String sdt,String email,String street,String city,byte[]hinhAnh) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "Insert into Profile(id,Name,PhoneNumber,Email,Street,City,HinhAnh)  values(null,?,?,?,?,?,?)";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1,ten);
+        statement.bindString(2, sdt);
+        statement.bindString(3, email);
+        statement.bindString(4, street);
+        statement.bindString(5, city);
+        statement.bindBlob(6, hinhAnh);
         statement.executeInsert();
     }
-    public  void insertForImageWithImagenull(String Ho,String ten,String sdt) {
+    public  void insertForImageWithImagenull(String ten,String sdt,String email,String street,String city) {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "Insert into users(id,firstName, lastName,phoneNumber)  values(null,?,?,?)";
+        String sql = "Insert into users(id,Name,PhoneNumber,Email,Street,City)  values(null,?,?,?,?,?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
-        statement.bindString(1,Ho);
-        statement.bindString(2, ten);
-        statement.bindString(3, sdt);
+        statement.bindString(1, ten);
+        statement.bindString(2, sdt);
+        statement.bindString(3, email);
+        statement.bindString(4, street);
+        statement.bindString(5, city);
+        statement.executeInsert();
+    }  public  void insertForImageWithImagenullProfile(String ten,String sdt,String email,String street,String city) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "Insert into Profile(id,Name,PhoneNumber,Email,Street,City)  values(null,?,?,?,?,?)";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, ten);
+        statement.bindString(2, sdt);
+        statement.bindString(3, email);
+        statement.bindString(4, street);
+        statement.bindString(5, city);
         statement.executeInsert();
     }
     @Override

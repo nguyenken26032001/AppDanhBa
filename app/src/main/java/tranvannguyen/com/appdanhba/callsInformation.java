@@ -1,47 +1,74 @@
 package tranvannguyen.com.appdanhba;
 
+import android.graphics.Bitmap;
+
 public class callsInformation {
-    private String name;
-    private String phone;
-    private String date;
-    private String duration;
+    private String LogName;
+    private String LogPhone;
+    private String LogDate;
+    private String LogDuration;
+    private String LogTime;
+    private Bitmap LogImage;
 
-    public callsInformation(String name, String phone, String date, String duration) {
-        this.name = name;
-        this.phone = phone;
-        this.date = date;
-        this.duration = duration;
+
+    public callsInformation() {
+
     }
 
-    public String getName() {
-        return name;
+    public callsInformation(String logName, String logPhone, String logDate, String logDuration, String logTime, Bitmap logImage) {
+        LogName = logName;
+        LogPhone = logPhone;
+        LogDate = logDate;
+        LogDuration = logDuration;
+        LogTime = logTime;
+        LogImage = logImage;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getLogName() {
+        return LogName;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setLogName(String logName) {
+        LogName = logName;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String getLogPhone() {
+        return LogPhone;
     }
 
-    public String getDate() {
-        return date;
+    public void setLogPhone(String logPhone) {
+        LogPhone = logPhone;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public String getLogDate() {
+        return LogDate;
     }
 
-    public String getDuration() {
-        return duration;
+    public void setLogDate(String logDate) {
+        LogDate = logDate;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public String getLogDuration() {
+        return LogDuration;
+    }
+
+    public void setLogDuration(String logDuration) {
+        LogDuration = logDuration;
+    }
+
+    public String getLogTime() {
+        return LogTime;
+    }
+
+    public void setLogTime(String logTime) {
+        LogTime = logTime;
+    }
+
+    public Bitmap getLogImage() {
+        return LogImage;
+    }
+
+    public void setLogImage(Bitmap logImage) {
+        LogImage = logImage;
     }
 }

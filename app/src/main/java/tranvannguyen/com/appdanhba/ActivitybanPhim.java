@@ -51,29 +51,24 @@ public class ActivitybanPhim extends AppCompatActivity {
         addControls();
         addEvent();
         ahBottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.drawable.favorite, R.color.tab_1);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.clock, R.color.tab_2);
         AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_3, R.drawable.danhba, R.color.tab_3);
         AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.tab_4, R.drawable.keyboard, R.color.tab_4);
-        ahBottomNavigation.addItem(item1);
         ahBottomNavigation.addItem(item2);
         ahBottomNavigation.addItem(item3);
         ahBottomNavigation.addItem(item4);
         ahBottomNavigation.setColored(true);
         ahBottomNavigation.setTitleState(AHBottomNavigation.TitleState.SHOW_WHEN_ACTIVE);
         ahBottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
-        ahBottomNavigation.setCurrentItem(3);
+        ahBottomNavigation.setCurrentItem(2);
         ahBottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
                 if(position==0){
-                    Intent intent = new Intent(ActivitybanPhim.this, ActivityYeuThich.class);
-                    startActivity(intent);
-                } if(position==1){
                     Intent intent = new Intent(ActivitybanPhim.this, ActivityRecent.class);
                     startActivity(intent);
                 }
-                if(position==2){
+                if(position==1){
                     Intent intent = new Intent(ActivitybanPhim.this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -249,7 +244,12 @@ public class ActivitybanPhim extends AppCompatActivity {
         addNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    showDialogAddPhoneNumber();
+                String str;
+                str = text.getText().toString();
+                Intent intent = new Intent(ActivitybanPhim.this, ActivityAddUser.class);
+                intent.putExtra("phoneNumber", str);
+                intent.putExtra("class","A");
+                startActivity(intent);
             }
         });
         btnCall.setOnClickListener(new View.OnClickListener() {
@@ -288,39 +288,7 @@ public class ActivitybanPhim extends AppCompatActivity {
         intent.setData(Uri.parse("tel:" + data));
         startActivity(intent);
     }
-    private void showDialogAddPhoneNumber() {
-        Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_addphone_number);
-        int width = (int)(getResources().getDisplayMetrics().widthPixels*0.98);
-        int height = (int)(getResources().getDisplayMetrics().heightPixels*0.30);
-        dialog.getWindow().setLayout(width, height);
-        Window window = dialog.getWindow();
-        WindowManager.LayoutParams wlp = window.getAttributes();
-        wlp.gravity = Gravity.BOTTOM;
-        wlp.flags &= ~WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        window.setAttributes(wlp);
-        dialog.show();
-        Button btnadd = (Button) dialog.findViewById(R.id.adduser);
-        Button btncancle = (Button) dialog.findViewById(R.id.cancle);
-        btnadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String str;
-                 str = text.getText().toString();
-                Intent intent = new Intent(ActivitybanPhim.this, ActivityAddUser.class);
-                intent.putExtra("phoneNumber", str);
-                intent.putExtra("class","A");
-                startActivity(intent);
-            }
-        });
-        btncancle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-    }
+
     public void getCallLogs() {
         int flag=1;
         StringBuilder callLogs = new StringBuilder();

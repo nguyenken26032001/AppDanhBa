@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/call.xml" value="0.240625" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/custom_button_add_phonenumber.xml" value="0.240625" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/custom_button_call.xml" value="0.240625" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/custom_dialog_addphonenumber.xml" value="0.240625" />
@@ -10,16 +11,25 @@
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/custom_search.xml" value="0.240625" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/custombutton.xml" value="0.240625" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/divider.xml" value="0.240625" />
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/ic_email.xml" value="0.240625" />
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/ic_location.xml" value="0.240625" />
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/drawable/person.xml" value="0.12604166666666666" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_activityban_phim.xml" value="0.22447916666666667" />
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_add_update_user.xml" value="0.22447916666666667" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_add_user.xml" value="0.22447916666666667" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_danh_ba_detail.xml" value="0.33" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_lien_he_moi.xml" value="0.22" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_profile_personnal.xml" value="0.21041666666666667" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_recent.xml" value="0.22447916666666667" />
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_user_detail.xml" value="0.22447916666666667" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/activity_yeu_thich.xml" value="0.22447916666666667" />
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/call_log_view.xml" value="0.25" />
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/customdialog_search.xml" value="0.22447916666666667" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/dialog_addphone_number.xml" value="0.22056159420289856" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/item_calls.xml" value="0.25" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/item_user.xml" value="0.22447916666666667" />
+        <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/profile_personal.xml" value="0.22447916666666667" />
         <entry key="..\:/BT Android(App)/AppDanhBa/app/src/main/res/layout/tesst.xml" value="0.22447916666666667" />
       </map>
     </option>

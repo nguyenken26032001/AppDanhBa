@@ -35,7 +35,7 @@ public class adapter  extends RecyclerView.Adapter<adapter.viewHolder>{
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
       final   user user = listUuser.get(position);
-        holder.txtuserName.setText(listUuser.get(position).getFirstName()+"\t"+listUuser.get(position).getLastName());
+        holder.txtuserName.setText(listUuser.get(position).getName());
         holder.layout_item.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {

@@ -41,6 +41,7 @@
         android:text="Gần đây"
         android:textSize="22sp"
         android:textStyle="bold" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Recyclerview_Calls"
         android:layout_width="match_parent"

@@ -8,9 +8,12 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.TransactionTooLargeException;
 import android.provider.MediaStore;
 import android.text.style.AlignmentSpan;
 import android.view.View;
@@ -21,6 +24,7 @@ import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.google.android.material.internal.TextDrawableHelper;
+import com.google.android.material.snackbar.Snackbar;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.normal.TedPermission;
 
@@ -28,33 +32,36 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import gun0912.tedbottompicker.TedBottomPicker;
 import gun0912.tedbottompicker.TedBottomSheetDialogFragment;
 import gun0912.tedbottompicker.TedRxBottomPicker;
-
-
 public class danhBaDetail<printStackTrace> extends AppCompatActivity {
-    ImageView imageView;
-    TextView txtuserName,phone;
+    CircleImageView imageView;
+    TextView txtuserName,phone,email,location;
     TextView txtback,txtUpdate;
-    TextView sendMessage;
-    Button btnSendMessage, btncall;
+    Button btnSendMessage, btncall,btnEmail,btnLocation;
     String sdt;
+    String email_acc;
     ArrayList<user> inforUser;
-
+    int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int id;
-        setContentView(R.layout.activity_danh_ba_detail);
-        imageView = (ImageView) findViewById(R.id.image);
-        txtuserName = (TextView) findViewById(R.id.userName);
+
+        setContentView(R.layout.activity_user_detail);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        imageView = (CircleImageView) findViewById(R.id.profile_image);
+        txtuserName = (TextView) findViewById(R.id.name);
         phone = (TextView) findViewById(R.id.phoneNumber);
         txtback = (TextView) findViewById(R.id.backPage);
-        sendMessage = (TextView) findViewById(R.id.sendMessage);
-        btnSendMessage = (Button) findViewById(R.id.message);
-        btncall = (Button) findViewById(R.id.call);
         txtUpdate = (TextView) findViewById(R.id.update);
+        btnSendMessage = (Button) findViewById(R.id.bt_sms);
+        btncall = (Button) findViewById(R.id.bt_call);
+        email = (TextView) findViewById(R.id.emailAddress);
+        location = (TextView) findViewById(R.id.location);
+        btnEmail = (Button) findViewById(R.id.bt_email);
+        btnLocation = (Button) findViewById(R.id.bt_location);
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {
             return;
@@ -62,11 +69,16 @@ public class danhBaDetail<printStackTrace> extends AppCompatActivity {
             user user = (user) bundle.get("object");
             id = user.getId();
         Toast.makeText(danhBaDetail.this, ""+id, Toast.LENGTH_SHORT).show();
-        String ho = user.getFirstName();
-        String ten = user.getLastName();
+        String ten = user.getName();
         sdt = user.getPhoneNumber();
-        txtuserName.setText(ho+"\t"+ten);
+        email_acc = user.getEmail();
+        String street = user.getStreet()+",";
+        String city = user.getCity();
+        String Address = street + city;
+        txtuserName.setText(ten);
         phone.setText(sdt);
+        email.setText(email_acc);
+        location.setText(Address);
         Character FirstCharacters = ten.charAt(0);
         TextDrawable drawable = TextDrawable.builder()
                 .buildRect(String.valueOf(FirstCharacters), Color.RED);
@@ -83,7 +95,7 @@ public class danhBaDetail<printStackTrace> extends AppCompatActivity {
                 callNow();
             }
         });
-        sendMessage.setOnClickListener(new View.OnClickListener() {
+        btnSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                sendMessage();
@@ -99,6 +111,12 @@ public class danhBaDetail<printStackTrace> extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 callNow();
+            }
+        });
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setEmailOnClick();
             }
         });
         txtUpdate.setOnClickListener(new View.OnClickListener() {
@@ -122,5 +140,37 @@ public class danhBaDetail<printStackTrace> extends AppCompatActivity {
         Intent intentCall = new Intent(Intent.ACTION_CALL);
         intentCall.setData(Uri.parse("tel:" +sdt));
         startActivity(intentCall);
+    }
+    private void setEmailOnClick() {
+        if (!email_acc.isEmpty()) {
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email_acc});
+            emailIntent.setType("plain/text");
+            startActivity(Intent.createChooser(emailIntent, " Send... "));
+
+        } else {
+            Snackbar.make(findViewById(R.id.sv_scroll), "Email not found",
+                    Snackbar.LENGTH_LONG)
+                    .setAction("Add", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            try {
+                                sendDataToUpdate();
+                            } catch (Exception e) {
+                                Toast.makeText(danhBaDetail.this,
+                                        "Too large data to handle", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    })
+                    .show();
+        }
+    }
+
+    private void sendDataToUpdate() {
+        Intent intent = new Intent(danhBaDetail.this, ActivityAddUser.class);
+        intent.putExtra("position", id);
+        intent.putExtra("class","C");
+        startActivity(intent);
+
     }
 }
